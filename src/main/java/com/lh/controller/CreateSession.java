@@ -15,6 +15,7 @@ public class CreateSession extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
+        session.invalidate();
         out.println(session.getId());
         session.setAttribute("lh", "value");
         Cookie cookie = new Cookie("JSESSIONID", session.getId());
